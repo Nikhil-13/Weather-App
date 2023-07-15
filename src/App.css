@@ -1,0 +1,110 @@
+*,
+*::after,
+*::before
+{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root
+{
+  --dark: #000;
+  --light: #fff;
+  --text: #fafafa;
+  --background: #050505;
+  --primary: #1bf3f3;
+  --secondary: #031f3a;
+  --accent: #16f385;
+}
+
+html
+{
+  color-scheme: light dark;
+}
+
+body
+{
+  font-family: system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  background-color: var(--background);
+}
+
+img,
+svg,
+video
+{
+  max-width: 100%;
+  display: block;
+}
+
+h1
+{
+  font-size: clamp();
+  text-wrap: balance;
+}
+
+main
+{
+  width: min(65ch, 100%-4rem);
+  margin-inline: auto;
+}
+
+
+@media(prefers-color-scheme:light)
+{
+  :root
+  {
+    --text: #050505;
+    --background: #fafafa;
+    --primary: #1bf3f3;
+    --secondary: #cee6fd;
+    --accent: #0cf380;
+  }
+}
+
+@media(prefers-reduced-motion:no-preference)
+{
+  /* all your animations goes here */
+}
+
+@media(prefers-reduced-motion:reduced)
+{
+
+  *,
+  *::after,
+  *::before
+  {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+@media (width<640px)
+{
+
+  /* for mobile devices */
+}
+
+@media (768px>width<1024px)
+{
+
+  /* for tablets */
+}
+
+@media (width>=1024px)
+{
+
+  /* for desktops and laptops */
+}
+
+
+.grid
+{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, min-max('22rem', 100%), 1fr);
+}
