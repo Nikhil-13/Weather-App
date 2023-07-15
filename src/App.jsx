@@ -2,7 +2,9 @@ import './App.css'
 
 function App() {
 	return (
-		<>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, ipsum?</>
+		<div className='Conatiner'>
+			Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum, doloremque!
+		</div>
 	)
 }
 

@@ -28,7 +28,13 @@ body
   font-family: system-ui, sans-serif;
   font-size: 1.125rem;
   line-height: 1.5;
-  background-color: var(--background);
+  background-color: var(--dark);
+}
+
+.container
+{
+  background-color: var(--accent);
+  min-height: 100dvh;
 }
 
 img,
