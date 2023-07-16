@@ -1,0 +1,142 @@
+.form__group
+{
+  position: relative;
+  padding: 20px 0 0;
+  width: 100%;
+}
+
+.form__field
+{
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 17px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder
+{
+  color: transparent;
+}
+
+.form__field:placeholder-shown~.form__label
+{
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label
+{
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #9b9b9b;
+  pointer-events: none;
+}
+
+.form__field:focus
+{
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #116399, #38caef);
+  border-image-slice: 1;
+}
+
+.form__field:focus~.form__label
+{
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #38caef;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required,
+.form__field:invalid
+{
+  box-shadow: none;
+}
+
+/* card */
+
+.card
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80%;
+  min-height: 100px;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  background-color: var(--background);
+  margin: 2rem;
+  outline: 1px solid #fff;
+}
+
+.detailed-info
+{
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+  padding: .5em;
+  width: 100%;
+}
+
+.detailed-info-item
+{
+  min-width: 70px;
+  max-width: 70px;
+}
+
+.detailed-info-item>*
+{
+  display: block;
+  margin-inline: auto;
+  /* background-color: #38caef; */
+}
+
+.detailed-info-item span:nth-child(odd)
+{
+  font-size: small;
+  opacity: .6;
+  text-align: center;
+}
+
+.detailed-info-item span:nth-child(even)
+{
+  font-size: small;
+  opacity: .7;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.main-report
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: .5rem;
+  gap: 1rem;
+}
+
+.main-report .detail .city-name
+{
+  font-size: larger;
+}
+
+.main-report .detail>*
+{
+  display: block;
+}
