@@ -21,6 +21,7 @@ function Report() {
 					<span>AQI</span>
 				</div>
 			</div>
+			<hr />
 			<div className='main-report'>
 				<div className='weather-icon'>
 					<Cloud size={70} />
