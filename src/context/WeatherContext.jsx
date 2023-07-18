@@ -1,12 +1,11 @@
 import { createContext, useState, useEffect } from 'react'
-import { cityList } from '../data/sample.js'
+// import { cityList } from '../data/sample.js'
+import axios from 'axios'
 
 const WeatherContext = createContext()
 
 export const WeatherContextProvider = ({ children }) => {
 	const [city, setCity] = useState('')
-
-	const currentCity = cityList.cities.filter((siti) => siti === city)
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -18,13 +17,13 @@ export const WeatherContextProvider = ({ children }) => {
 		}
 	}, [city])
 
-	const fetchdata = async () => {
+	async function fetchData(url) {
 		const response = await axios.get(url)
 		console.log(response)
 	}
 
 	return (
-		<WeatherContext.Provider value={{ city, setCity, cityList, currentCity }}>
+		<WeatherContext.Provider value={{ city, setCity, fetchData }}>
 			{children}
 		</WeatherContext.Provider>
 	)

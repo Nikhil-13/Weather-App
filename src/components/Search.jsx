@@ -1,17 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useContext } from 'react'
+import WeatherContext from '../context/WeatherContext'
 
 function Search() {
-	const [city, setCity] = useState()
-
-	useEffect(() => {
-		const timer = setTimeout(() => {
-			console.log('hitting api')
-		}, 1500)
-
-		return () => {
-			clearTimeout(timer)
-		}
-	}, [city])
+	const { city, setCity, fetchData } = useContext(WeatherContext)
+	fetchData('https://api.github.com/users/nikhil-13')
 
 	return (
 		<div className='form__group field'>
@@ -21,8 +13,8 @@ function Search() {
 				placeholder='City'
 				id='city'
 				required={true}
-				// value={city}
-				// onChange={(e) => setCity(e.target.value)}
+				value={city}
+				onChange={(e) => setCity(e.target.value)}
 			/>
 			<label htmlFor='city' className='form__label'>
 				Select Your City
