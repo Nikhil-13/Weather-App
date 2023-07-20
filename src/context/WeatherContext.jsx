@@ -10,9 +10,6 @@ export const WeatherContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		getUserCurrentLocation()
-	})
-
-	useEffect(() => {
 		const timer = setTimeout(() => {
 			const matchedCity = cityList.cities.find((siti) => siti.name === city)
 			setSelectedCity(matchedCity ? matchedCity : '')
@@ -21,7 +18,7 @@ export const WeatherContextProvider = ({ children }) => {
 		return () => {
 			clearTimeout(timer)
 		}
-	}, [city, selected])
+	}, [city])
 
 	// get current coordinates
 
@@ -49,20 +46,18 @@ export const WeatherContextProvider = ({ children }) => {
 			setCity(response.data.address.city)
 		}
 
-		// async function fetchData(url) {
-		// 	const response = await axios.get(url)
-		// 	console.log(response)
-		// }
+		async function fetchData(url) {
+			const response = await axios.get(url)
+			console.log(response)
+		}
 
 		return (
 			<WeatherContext.Provider
 				value={{
 					city,
-					setCity,
 					cityList,
 					selected,
-					getUserCurrentLocation,
-					// fetchData
+					setCity,
 				}}>
 				{children}
 			</WeatherContext.Provider>
