@@ -10,17 +10,12 @@ export const WeatherContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		getUserCurrentLocation()
-		const timer = setTimeout(() => {
-			const matchedCity = cityList.cities.find((siti) => siti.name === city)
-			setSelectedCity(matchedCity ? matchedCity : '')
-		}, 500)
+	}, [])
 
-		return () => {
-			clearTimeout(timer)
-		}
+	useEffect(() => {
+		const matchedCity = cityList.cities.find((siti) => siti.name === city)
+		setSelectedCity(matchedCity ? matchedCity : '')
 	}, [city])
-
-	// get current coordinates
 
 	const getUserCurrentLocation = () => {
 		if (navigator.geolocation) {
@@ -36,33 +31,31 @@ export const WeatherContextProvider = ({ children }) => {
 		} else {
 			alert('Geolocation is not supported by this browser.')
 		}
-
-		// get city
-
-		async function getCity(latitude, longitude) {
-			const response = await axios.get(
-				`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
-			)
-			setCity(response.data.address.city)
-		}
-
-		async function fetchData(url) {
-			const response = await axios.get(url)
-			console.log(response)
-		}
-
-		return (
-			<WeatherContext.Provider
-				value={{
-					city,
-					cityList,
-					selected,
-					setCity,
-				}}>
-				{children}
-			</WeatherContext.Provider>
-		)
 	}
+
+	async function getCity(latitude, longitude) {
+		const response = await axios.get(
+			`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+		)
+		setCity(response.data.address.city)
+	}
+
+	// async function fetchData(url) {
+	//   const response = await axios.get(url);
+	//   console.log(response);
+	// }
+
+	return (
+		<WeatherContext.Provider
+			value={{
+				city,
+				cityList,
+				selected,
+				setCity,
+			}}>
+			{children}
+		</WeatherContext.Provider>
+	)
 }
 
 export default WeatherContext
