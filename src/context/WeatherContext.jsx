@@ -6,7 +6,7 @@ const WeatherContext = createContext()
 
 export const WeatherContextProvider = ({ children }) => {
 	const [city, setCity] = useState('')
-	const [selected, setSelectedCity] = useState()
+	const [selected, setSelectedCity] = useState(null)
 
 	useEffect(() => {
 		getUserCurrentLocation()
