@@ -1,6 +1,27 @@
 export const cityList = {
 	cities: [
 		{
+			name: 'Chandigarh',
+			temperature: 26,
+			humidity: 40,
+			wind_speed: 50,
+			aqi: 120,
+		},
+		{
+			name: 'Ludhiana',
+			temperature: 36,
+			humidity: 20,
+			wind_speed: 70,
+			aqi: 180,
+		},
+		{
+			name: 'Mohali',
+			temperature: 28,
+			humidity: 40,
+			wind_speed: 60,
+			aqi: 190,
+		},
+		{
 			name: 'Mumbai',
 			temperature: 30,
 			humidity: 75,

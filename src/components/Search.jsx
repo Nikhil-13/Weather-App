@@ -1,9 +1,9 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import WeatherContext from '../context/WeatherContext'
 import { CloudFog } from 'lucide-react'
 
 function Search() {
-	const { city, setCity, cityList } = useContext(WeatherContext)
+	const { city, setCity } = useContext(WeatherContext)
 
 	return (
 		<div className='form__group field'>

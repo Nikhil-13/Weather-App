@@ -9,6 +9,10 @@ export const WeatherContextProvider = ({ children }) => {
 	const [selected, setSelectedCity] = useState()
 
 	useEffect(() => {
+		getUserCurrentLocation()
+	})
+
+	useEffect(() => {
 		const timer = setTimeout(() => {
 			const matchedCity = cityList.cities.find((siti) => siti.name === city)
 			setSelectedCity(matchedCity ? matchedCity : '')
@@ -17,25 +21,53 @@ export const WeatherContextProvider = ({ children }) => {
 		return () => {
 			clearTimeout(timer)
 		}
-	}, [city])
+	}, [city, selected])
 
-	// async function fetchData(url) {
-	// 	const response = await axios.get(url)
-	// 	console.log(response)
-	// }
+	// get current coordinates
 
-	return (
-		<WeatherContext.Provider
-			value={{
-				city,
-				setCity,
-				cityList,
-				selected,
-				// fetchData
-			}}>
-			{children}
-		</WeatherContext.Provider>
-	)
+	const getUserCurrentLocation = () => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+					const { latitude, longitude } = position.coords
+					getCity(latitude, longitude)
+				},
+				(error) => {
+					console.error('Error getting location:', error)
+				}
+			)
+		} else {
+			alert('Geolocation is not supported by this browser.')
+		}
+
+		// get city
+
+		async function getCity(latitude, longitude) {
+			const response = await axios.get(
+				`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+			)
+			setCity(response.data.address.city)
+		}
+
+		// async function fetchData(url) {
+		// 	const response = await axios.get(url)
+		// 	console.log(response)
+		// }
+
+		return (
+			<WeatherContext.Provider
+				value={{
+					city,
+					setCity,
+					cityList,
+					selected,
+					getUserCurrentLocation,
+					// fetchData
+				}}>
+				{children}
+			</WeatherContext.Provider>
+		)
+	}
 }
 
 export default WeatherContext

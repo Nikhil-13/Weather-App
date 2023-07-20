@@ -8,17 +8,17 @@ function Report() {
 		<div className='card'>
 			<div className='detailed-info'>
 				<div className='detailed-info-item' id='humidity'>
-					<Droplets />
+					<Droplets size={30} style={{ marginBottom: '5px' }} />
 					<span>{selected.humidity}%</span>
 					<span>Humidity</span>
 				</div>
 				<div className='detailed-info-item' id='wind'>
-					<Wind />
+					<Wind size={30} style={{ marginBottom: '5px' }} />
 					<span>{selected.wind_speed}kmph</span>
 					<span>Wind</span>
 				</div>
 				<div className='detailed-info-item' id='aqi'>
-					<Wind />
+					<Wind size={30} style={{ marginBottom: '5px' }} />
 					<span>{selected.aqi}</span>
 					<span>AQI</span>
 				</div>
