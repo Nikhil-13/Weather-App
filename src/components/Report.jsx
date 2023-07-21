@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Cloud, Droplets, Wind } from 'lucide-react'
+import { Cloud, Droplets, Flower, Wind } from 'lucide-react'
 import WeatherContext from '../context/WeatherContext'
 
 function Report() {
@@ -18,7 +18,7 @@ function Report() {
 					<span>Wind</span>
 				</div>
 				<div className='detailed-info-item' id='aqi'>
-					<Wind size={30} style={{ marginBottom: '5px' }} />
+					<Flower size={30} style={{ marginBottom: '5px' }} />
 					<span>{selected.aqi}</span>
 					<span>AQI</span>
 				</div>

@@ -78,7 +78,7 @@
   align-items: center;
   min-width: 70%;
   min-height: 100px;
-  padding: 1rem 2rem;
+  padding: 1rem;
   border-radius: 20px;
   background-color: var(--background);
   margin: 2rem;
@@ -107,7 +107,7 @@ hr
 {
   width: 100%;
   color: var(--text);
-  margin: 1rem auto;
+  margin: .5rem auto;
 }
 
 .detailed-info-item>*

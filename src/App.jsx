@@ -6,7 +6,7 @@ import Report from './components/Report'
 import { useContext } from 'react'
 
 function App() {
-	const { selected, getUserCurrentLocation } = useContext(WeatherContext)
+	const { selected } = useContext(WeatherContext)
 
 	return (
 		<div className='container'>

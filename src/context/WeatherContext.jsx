@@ -17,6 +17,8 @@ export const WeatherContextProvider = ({ children }) => {
 		setSelectedCity(matchedCity ? matchedCity : '')
 	}, [city])
 
+	// get current coordiantes
+
 	const getUserCurrentLocation = () => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
@@ -32,6 +34,8 @@ export const WeatherContextProvider = ({ children }) => {
 			alert('Geolocation is not supported by this browser.')
 		}
 	}
+
+	// get current city
 
 	async function getCity(latitude, longitude) {
 		const response = await axios.get(
