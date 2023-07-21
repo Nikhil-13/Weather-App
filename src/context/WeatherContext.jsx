@@ -13,7 +13,9 @@ export const WeatherContextProvider = ({ children }) => {
 	}, [])
 
 	useEffect(() => {
-		const matchedCity = cityList.cities.find((siti) => siti.name === city)
+		const matchedCity = cityList.cities.find(
+			(siti) => siti.name === city.charAt(0).toUpperCase() + city.slice(1)
+		)
 		setSelectedCity(matchedCity ? matchedCity : '')
 	}, [city])
 

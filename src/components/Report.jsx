@@ -14,7 +14,7 @@ function Report() {
 				</div>
 				<div className='detailed-info-item' id='wind'>
 					<Wind size={30} style={{ marginBottom: '5px' }} />
-					<span>{selected.wind_speed}kmph</span>
+					<span>{selected.wind_speed} km/h</span>
 					<span>Wind</span>
 				</div>
 				<div className='detailed-info-item' id='aqi'>
