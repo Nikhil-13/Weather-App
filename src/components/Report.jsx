@@ -31,7 +31,7 @@ function Report() {
 				<div className='detail'>
 					<span className='temp'>
 						{selected.temperature}
-						&deg;
+						&deg;C
 					</span>
 					<span className='city-name'>{selected.name}</span>
 				</div>
