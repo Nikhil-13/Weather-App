@@ -6,12 +6,19 @@ import Report from './components/Report'
 import { useContext } from 'react'
 
 function App() {
-	const { selected } = useContext(WeatherContext)
+	const { selected, message } = useContext(WeatherContext)
 
 	return (
 		<div className='container'>
 			<Search />
-			{selected ? <Report /> : <div style={{ opacity: '0.7' }}>No Data Available</div>}
+			{selected ? (
+				<Report />
+			) : (
+				<div style={{ opacity: '0.7', textAlign: 'center' }}>
+					No Data Available <br />
+					{message}
+				</div>
+			)}
 		</div>
 	)
 }

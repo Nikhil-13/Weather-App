@@ -6,6 +6,7 @@ const WeatherContext = createContext()
 
 export const WeatherContextProvider = ({ children }) => {
 	const [city, setCity] = useState('')
+	const [message, setMessage] = useState(null)
 	const [selected, setSelectedCity] = useState(null)
 
 	useEffect(() => {
@@ -30,6 +31,7 @@ export const WeatherContextProvider = ({ children }) => {
 				},
 				(error) => {
 					console.error('Error getting location:', error)
+					setMessage('Please turn on Location')
 				}
 			)
 		} else {
@@ -57,6 +59,7 @@ export const WeatherContextProvider = ({ children }) => {
 				city,
 				cityList,
 				selected,
+				message,
 				setCity,
 			}}>
 			{children}
