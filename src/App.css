@@ -1,123 +1,96 @@
 *,
 *::after,
-*::before
-{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* border: 1px solid red; */
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	/* border: 1px solid red; */
 }
 
-:root
-{
-  --background: #242424;
-  --text: #fff;
-  --secondary: #000;
+:root {
+	--background: #242424;
+	--text: #fff;
+	--secondary: #000;
 }
 
-@media(prefers-color-scheme:light)
-{
-  :root
-  {
-    --background: #ffffff;
-    --text: #000000;
-    --secondary: #242424;
-  }
+@media (prefers-color-scheme: light) {
+	:root {
+		--background: #ffffff;
+		--text: #000000;
+		--secondary: #242424;
+	}
 }
 
-html
-{
-  color-scheme: light dark;
+html {
+	color-scheme: light dark;
 }
 
-body
-{
-  font-family: system-ui, sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.5;
-  background-color: var(--background);
-  color: var(--text);
+body {
+	font-family: system-ui, sans-serif;
+	font-size: 1.125rem;
+	line-height: 1.5;
+	background-color: var(--background);
+	color: var(--text);
 }
 
-.container
-{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  min-height: 100dvh;
-  width: 50vw;
-  position: relative;
-  padding: 2rem 1rem;
-  margin-inline: auto;
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	min-height: 100dvh;
+	width: 50vw;
+	position: relative;
+	padding: 2rem 1rem;
+	margin-inline: auto;
 }
-
 
 img,
 svg,
-video
-{
-  max-width: 100%;
-  display: block;
+video {
+	max-width: 100%;
+	display: block;
 }
 
-h1
-{
-  font-size: clamp();
-  text-wrap: balance;
+h1 {
+	font-size: clamp();
+	text-wrap: balance;
 }
 
-main
-{
-  width: min(65ch, 100%-4rem);
-  margin-inline: auto;
+main {
+	width: min(65ch, 100%-4rem);
+	margin-inline: auto;
 }
 
-
-
-
-@media(prefers-reduced-motion:no-preference)
-{
-  /* all your animations goes here */
+@media (prefers-reduced-motion: no-preference) {
+	/* all your animations goes here */
 }
 
-@media(prefers-reduced-motion:reduced)
-{
-
-  *,
-  *::after,
-  *::before
-  {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-    scroll-behavior: auto !important;
-  }
+@media (prefers-reduced-motion: reduced) {
+	*,
+	*::after,
+	*::before {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
 
+@media (width<=430px) {
+	.container {
+		width: 90vw;
+	}
 
-@media (width<=430px)
-{
-
-  .container
-  {
-    width: 90vw;
-  }
-
-  .card
-  {
-    padding: 1rem;
-  }
+	.card {
+		padding: 1rem;
+	}
 }
 
-@media (width>=768px)
-{
-
-  /* for tablets */
+@media (width>=768px) {
+	/* for tablets */
 }
 
-@media (width>=1024px)
-{
-
-  /* for desktops and laptops */
+@media (width>=1024px) {
+	/* for desktops and laptops */
 }

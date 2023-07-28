@@ -1,152 +1,133 @@
-.form__group
-{
-  position: relative;
-  padding: 20px 0 0;
-  width: 100%;
+.form__group {
+	position: relative;
+	padding: 20px 0 0;
+	width: 100%;
 }
 
-.form__field
-{
-  font-family: inherit;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid #9b9b9b;
-  outline: 0;
-  font-size: 17px;
-  color: var(--text);
-  padding: 7px 0;
-  background: transparent;
-  transition: border-color 0.2s;
+.form__field {
+	font-family: inherit;
+	width: 100%;
+	border: none;
+	border-bottom: 2px solid #9b9b9b;
+	outline: 0;
+	font-size: 17px;
+	color: var(--text);
+	padding: 7px 0;
+	background: transparent;
+	transition: border-color 0.2s;
 }
 
-.form__field::placeholder
-{
-  color: transparent;
+.form__field::placeholder {
+	color: transparent;
 }
 
-.form__field:placeholder-shown~.form__label
-{
-  font-size: 17px;
-  cursor: text;
-  top: 20px;
+.form__field:placeholder-shown ~ .form__label {
+	font-size: 17px;
+	cursor: text;
+	top: 20px;
 }
 
-.form__label
-{
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 17px;
-  color: var(--text);
-  pointer-events: none;
+.form__label {
+	position: absolute;
+	top: 0;
+	display: block;
+	transition: 0.2s;
+	font-size: 17px;
+	color: var(--text);
+	pointer-events: none;
 }
 
-.form__field:focus
-{
-  padding-bottom: 6px;
-  font-weight: 700;
-  border-width: 3px;
-  border-image: linear-gradient(to right, #116399, #38caef);
-  border-image-slice: 1;
+.form__field:focus {
+	padding-bottom: 6px;
+	font-weight: 700;
+	border-width: 3px;
+	border-image: linear-gradient(to right, #116399, #38caef);
+	border-image-slice: 1;
 }
 
-.form__field:focus~.form__label
-{
-  position: absolute;
-  top: 0;
-  display: block;
-  transition: 0.2s;
-  font-size: 17px;
-  color: #38caef;
-  font-weight: 700;
+.form__field:focus ~ .form__label {
+	position: absolute;
+	top: 0;
+	display: block;
+	transition: 0.2s;
+	font-size: 17px;
+	color: #38caef;
+	font-weight: 700;
 }
 
 /* reset input */
 .form__field:required,
-.form__field:invalid
-{
-  box-shadow: none;
+.form__field:invalid {
+	box-shadow: none;
 }
 
 /* card */
 
-.card
-{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 70%;
-  min-height: 100px;
-  padding: 1rem;
-  border-radius: 20px;
-  background-color: var(--background);
-  margin: 2rem;
-  border: 1pt solid var(--text);
-  /* box-shadow: inset 0px 0px 10px #ff0606b7; */
-  transition: all .2s ease;
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 70%;
+	min-height: 100px;
+	padding: 1rem;
+	border-radius: 20px;
+	background-color: var(--background);
+	margin: 2rem;
+	border: 1pt solid var(--text);
+	/* box-shadow: inset 0px 0px 10px #ff0606b7; */
+	transition: all 0.2s ease;
 }
 
-
-.detailed-info
-{
-  display: flex;
-  gap: 1rem;
-  justify-content: space-around;
-  padding: .5em;
-  width: 100%;
+.detailed-info {
+	display: flex;
+	gap: 1rem;
+	justify-content: space-around;
+	padding: 0.5em;
+	width: 100%;
 }
 
-.detailed-info-item
-{
-  min-width: 70px;
-  max-width: 70px;
+.detailed-info-item {
+	min-width: 70px;
+	max-width: 70px;
 }
 
-hr
-{
-  width: 100%;
-  color: var(--text);
-  margin: .5rem auto;
+hr {
+	width: 100%;
+	color: var(--text);
+	margin: 0.5rem auto;
 }
 
-.detailed-info-item>*
-{
-  display: block;
-  margin-inline: auto;
-  /* background-color: #38caef; */
+.detailed-info-item > * {
+	display: block;
+	margin-inline: auto;
+	/* background-color: #38caef; */
 }
 
-.detailed-info-item span:nth-child(odd)
-{
-  font-size: small;
-  opacity: .6;
-  text-align: center;
+.detailed-info-item span:nth-child(odd) {
+	font-size: small;
+	opacity: 0.6;
+	text-align: center;
 }
 
-.detailed-info-item span:nth-child(even)
-{
-  font-size: small;
-  opacity: .7;
-  text-align: center;
-  word-break: keep-all;
+.detailed-info-item span:nth-child(even) {
+	font-size: small;
+	opacity: 0.7;
+	text-align: center;
+	word-break: keep-all;
 }
 
-.main-report
-{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: .5rem;
-  gap: 1rem;
+.main-report {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 0.5rem;
+	gap: 1rem;
 }
 
-.main-report .detail .city-name
-{
-  font-size: larger;
+.main-report .detail .city-name {
+	font-size: larger;
 }
 
-.main-report .detail>*
-{
-  display: block;
+.main-report .detail > * {
+	display: block;
 }

@@ -23,20 +23,22 @@ export const WeatherContextProvider = ({ children }) => {
 	// get current coordiantes
 
 	const getUserCurrentLocation = () => {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(
-				(position) => {
-					const { latitude, longitude } = position.coords
-					getCity(latitude, longitude)
-				},
-				(error) => {
-					console.error('Error getting location:', error)
-					setMessage('Please turn on Location')
+		navigator.permissions.query({ name: 'geolocation' }).then((result) => {
+			if (result.state === 'granted') {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(
+						(position) => {
+							const { latitude, longitude } = position.coords
+							getCity(latitude, longitude)
+						},
+						(error) => {
+							console.error('Error getting location:', error)
+							setMessage('Please turn on Location')
+						}
+					)
 				}
-			)
-		} else {
-			alert('Geolocation is not supported by this browser.')
-		}
+			}
+		})
 	}
 
 	// get current city
