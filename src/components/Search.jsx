@@ -13,7 +13,7 @@ function Search() {
 				placeholder='City'
 				id='city'
 				required={true}
-				value={city}
+				value={city || ''}
 				onChange={(e) => setCity(e.target.value)}
 			/>
 			<label htmlFor='city' className='form__label'>

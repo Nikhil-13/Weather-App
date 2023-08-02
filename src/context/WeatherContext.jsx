@@ -6,8 +6,8 @@ const WeatherContext = createContext()
 
 export const WeatherContextProvider = ({ children }) => {
 	const [city, setCity] = useState('')
-	const [message, setMessage] = useState(null)
-	const [selected, setSelectedCity] = useState(null)
+	const [message, setMessage] = useState('')
+	const [selected, setSelectedCity] = useState('')
 
 	useEffect(() => {
 		getUserCurrentLocation()
@@ -18,7 +18,7 @@ export const WeatherContextProvider = ({ children }) => {
 			(siti) => siti.name === city.charAt(0).toUpperCase() + city.slice(1)
 		)
 		setSelectedCity(matchedCity ? matchedCity : '')
-	}, [city])
+	}, [city, selected])
 
 	// get current coordiantes
 
@@ -40,10 +40,16 @@ export const WeatherContextProvider = ({ children }) => {
 	// get current city
 
 	async function getCity(latitude, longitude) {
-		const response = await axios.get(
-			`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
-		)
-		setCity(response.data.address.city)
+		try {
+			const response = await axios.get(
+				`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+			)
+			const extractedCity = response.data.address.county.trim().split(/\s+/)
+			console.log(response)
+			setCity(extractedCity[0])
+		} catch (error) {
+			console.log(error)
+		}
 	}
 
 	// async function fetchData(url) {

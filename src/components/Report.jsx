@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Cloud, Droplets, Flower, Wind } from 'lucide-react'
+import { Cloud, CloudLightning, Droplets, Flower, SunIcon, Wind } from 'lucide-react'
 import WeatherContext from '../context/WeatherContext'
 
 function Report() {
@@ -26,7 +26,10 @@ function Report() {
 			<hr />
 			<div className='main-report'>
 				<div className='weather-icon'>
-					<Cloud size={70} />
+					{selected.weather_type === 'Cloudy' ? <Cloud size={70} /> : ''}
+					{selected.weather_type === 'Rainy' ? <Droplets size={70} /> : ''}
+					{selected.weather_type === 'Sunny' ? <SunIcon size={70} /> : ''}
+					{selected.weather_type === 'Thunderstorm' ? <CloudLightning size={70} /> : ''}
 				</div>
 				<div className='detail'>
 					<span className='temp'>

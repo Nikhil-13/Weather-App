@@ -6,6 +6,7 @@ export const cityList = {
 			humidity: 40,
 			wind_speed: 50,
 			aqi: 120,
+			weather_type: 'Sunny',
 		},
 		{
 			name: 'Ludhiana',
@@ -13,6 +14,7 @@ export const cityList = {
 			humidity: 20,
 			wind_speed: 70,
 			aqi: 180,
+			weather_type: 'Cloudy',
 		},
 		{
 			name: 'Mohali',
@@ -20,6 +22,7 @@ export const cityList = {
 			humidity: 40,
 			wind_speed: 60,
 			aqi: 190,
+			weather_type: 'Sunny',
 		},
 		{
 			name: 'Mumbai',
@@ -27,6 +30,7 @@ export const cityList = {
 			humidity: 75,
 			wind_speed: 10,
 			aqi: 220,
+			weather_type: 'Rainy',
 		},
 		{
 			name: 'Delhi',
@@ -34,6 +38,7 @@ export const cityList = {
 			humidity: 65,
 			wind_speed: 15,
 			aqi: 450,
+			weather_type: 'Sunny',
 		},
 		{
 			name: 'Bangalore',
@@ -41,6 +46,7 @@ export const cityList = {
 			humidity: 80,
 			wind_speed: 8,
 			aqi: 320,
+			weather_type: 'Rainy',
 		},
 		{
 			name: 'Chennai',
@@ -48,6 +54,7 @@ export const cityList = {
 			humidity: 70,
 			wind_speed: 12,
 			aqi: 180,
+			weather_type: 'Sunny',
 		},
 		{
 			name: 'Kolkata',
@@ -55,6 +62,7 @@ export const cityList = {
 			humidity: 70,
 			wind_speed: 10,
 			aqi: 200,
+			weather_type: 'Thunderstorm',
 		},
 	],
 }
