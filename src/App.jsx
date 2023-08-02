@@ -6,7 +6,7 @@ import Report from './components/Report'
 import { useContext } from 'react'
 
 function App() {
-	const { selected, message } = useContext(WeatherContext)
+	const { selected, city, message } = useContext(WeatherContext)
 
 	return (
 		<div className='container'>
@@ -15,7 +15,7 @@ function App() {
 				<Report />
 			) : (
 				<div style={{ opacity: '0.7', textAlign: 'center' }}>
-					No Data Available <br />
+					{`No data available for ${city}`} <br />
 					{message}
 				</div>
 			)}
@@ -24,4 +24,3 @@ function App() {
 }
 
 export default App
-
