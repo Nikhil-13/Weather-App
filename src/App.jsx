@@ -15,7 +15,10 @@ function App() {
 				<Report />
 			) : (
 				<div style={{ opacity: '0.7', textAlign: 'center' }}>
-					{`No data available for ${city}`} <br />
+					{city == '' && message == '' ? `Please select a city` : ''}
+					{city != '' && message == '' ? `No data available for ${city}` : ''}
+					<br />
+
 					{message}
 				</div>
 			)}

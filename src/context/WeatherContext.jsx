@@ -31,7 +31,7 @@ export const WeatherContextProvider = ({ children }) => {
 				},
 				(error) => {
 					console.error('Error getting location:', error)
-					setMessage('Please turn on Location')
+					setMessage('Please turn on Location and try refreshing the page.')
 				}
 			)
 		}
