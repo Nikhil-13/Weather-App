@@ -1,74 +1,80 @@
-import { createContext, useState, useEffect } from 'react'
-import { cityList } from '../data/sample-data.js'
-import axios from 'axios'
+import { createContext, useState, useEffect } from 'react';
+// import { cityList } from '../data/sample-data.js'
+import axios from 'axios';
 
-const WeatherContext = createContext()
+const WeatherContext = createContext();
 
 export const WeatherContextProvider = ({ children }) => {
-	const [city, setCity] = useState('')
-	const [message, setMessage] = useState('')
-	const [selected, setSelectedCity] = useState('')
+  const [city, setCity] = useState('');
+  const [message, setMessage] = useState('');
+  const [weatherDetails, setWeatherDetails] = useState({});
 
-	useEffect(() => {
-		getUserCurrentLocation()
-	}, [])
+  useEffect(() => {
+    getUserCurrentLocation();
+  }, []);
 
-	useEffect(() => {
-		const matchedCity = cityList.cities.find(
-			(siti) => siti.name === city.charAt(0).toUpperCase() + city.slice(1)
-		)
-		setSelectedCity(matchedCity ? matchedCity : '')
-	}, [city, selected])
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      fetchWeatherDetails(city);
+    }, 500);
+    clearTimeout(timer);
+  }, [city]);
 
-	// get current coordiantes
+  // get current coordiantes
 
-	const getUserCurrentLocation = () => {
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(
-				(position) => {
-					const { latitude, longitude } = position.coords
-					getCity(latitude, longitude)
-				},
-				(error) => {
-					console.error('Error getting location:', error)
-					setMessage('Please turn on Location and try refreshing the page.')
-				}
-			)
-		}
-	}
+  const getUserCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          getCity(latitude, longitude);
+        },
+        (error) => {
+          console.error('Error getting location:', error);
+          setMessage('Please turn on Location and try refreshing the page.');
+        }
+      );
+    }
+  };
 
-	// get current city
+  // get current city
 
-	async function getCity(latitude, longitude) {
-		try {
-			const response = await axios.get(
-				`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
-			)
-			const extractedCity = response.data.address.county.trim().split(/\s+/)
-			console.log(response)
-			setCity(extractedCity[0])
-		} catch (error) {
-			console.log(error)
-		}
-	}
+  async function getCity(latitude, longitude) {
+    try {
+      const response = await axios.get(
+        `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+      );
+      const extractedCity = response.data.address.city.trim().split(/\s+/);
+      // console.log(response)
+      setCity(extractedCity[0]);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-	// async function fetchData(url) {
-	//   const response = await axios.get(url);
-	//   console.log(response);
-	// }
+  async function fetchWeatherDetails(cityName) {
+    if (city !== '') {
+      const response = await axios.get(
+        `https://api.weatherapi.com/v1/current.json?key=fa847ac3d2ce4ddc89a144017231507&q=${cityName}&aqi=yes`
+      );
+      // console.log(response.data)
+      setWeatherDetails(response.data);
+    }
+  }
 
-	return (
-		<WeatherContext.Provider
-			value={{
-				city,
-				cityList,
-				selected,
-				message,
-				setCity,
-			}}>
-			{children}
-		</WeatherContext.Provider>
-	)
-}
+  return (
+    <WeatherContext.Provider
+      value={{
+        city,
+        weatherDetails,
+        message,
+        setWeatherDetails,
+        setCity,
+      }}
+    >
+      {children}
+    </WeatherContext.Provider>
+  );
+};
 
-export default WeatherContext
+export default WeatherContext;

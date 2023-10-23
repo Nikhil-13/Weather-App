@@ -4,9 +4,9 @@ import App from './App.jsx'
 import { WeatherContextProvider } from './context/WeatherContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-	<React.StrictMode>
-		<WeatherContextProvider>
-			<App />
-		</WeatherContextProvider>
-	</React.StrictMode>
+	// <React.StrictMode>
+	<WeatherContextProvider>
+		<App />
+	</WeatherContextProvider>
+	// </React.StrictMode>
 )
